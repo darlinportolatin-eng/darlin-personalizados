@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Panel de pedidos | Darlin Personalizados</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/catalogo.css" rel="stylesheet" />
+        <link href="css/admin.css" rel="stylesheet" />
+    </head>
+    <body class="admin-body">
+        <header class="admin-topbar">
+            <div class="admin-topbar-inner">
+                <span class="admin-brand"><i class="bi-stars me-1"></i> Pedidos</span>
+                <span class="admin-fecha" id="admin-fecha"></span>
+            </div>
+        </header>
+
+        <!-- Acceso -->
+        <section class="admin-login" id="admin-login">
+            <div class="admin-login-card">
+                <div class="admin-login-icon"><i class="bi-shield-lock"></i></div>
+                <h1 class="h5 fw-bold mb-2">Panel de pedidos</h1>
+                <p class="small text-muted mb-3">Introduce tu clave para ver y confirmar los pedidos.</p>
+                <form id="admin-form">
+                    <input type="password" id="admin-clave" class="admin-input" placeholder="Clave de administrador" autocomplete="current-password" required />
+                    <button type="submit" class="btn btn-rosa-solido w-100 mt-3"><i class="bi-box-arrow-in-right me-2"></i>Entrar</button>
+                </form>
+                <div class="alert alert-danger mt-3 mb-0 d-none" id="admin-error" role="alert"></div>
+            </div>
+        </section>
+
+        <!-- Panel -->
+        <main class="admin-panel d-none" id="admin-panel">
+            <div class="admin-resumen">
+                <div class="admin-stat">
+                    <span class="admin-stat-num" id="stat-pendientes">0</span>
+                    <span class="admin-stat-label">Pendientes</span>
+                </div>
+                <div class="admin-stat">
+                    <span class="admin-stat-num" id="stat-realizados">0</span>
+                    <span class="admin-stat-label">Realizados</span>
+                </div>
+                <div class="admin-stat">
+                    <span class="admin-stat-num" id="stat-total">0</span>
+                    <span class="admin-stat-label">Total</span>
+                </div>
+            </div>
+
+            <div class="admin-acciones">
+                <div class="admin-filtros">
+                    <button type="button" class="filtro-btn active" data-filtro-estado="todos">Todos</button>
+                    <button type="button" class="filtro-btn" data-filtro-estado="pendiente">Pendientes</button>
+                    <button type="button" class="filtro-btn" data-filtro-estado="realizado">Realizados</button>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="admin-refrescar"><i class="bi-arrow-clockwise me-1"></i>Refrescar</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm" id="admin-salir"><i class="bi-box-arrow-right me-1"></i>Salir</button>
+                </div>
+            </div>
+
+            <div class="admin-lista" id="admin-lista"></div>
+            <p class="admin-vacio d-none" id="admin-vacio"><i class="bi-inbox d-block display-5 mb-2"></i>No hay pedidos para mostrar.</p>
+        </main>
+
+        <script src="js/admin.js"></script>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+# El Worker contiene claves privadas: NO se sube a GitHub.
+cloudflare-worker/
+
+# Respaldos y archivos temporales
+*.bak
+*.tmp
+Thumbs.db
+.DS_Store

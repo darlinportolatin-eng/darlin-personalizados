@@ -1,0 +1,821 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Catálogo de productos personalizados: tazas, termos, camisetas, gorras, llaveros, platos y más. Pídelos al instante por WhatsApp - Darlin Personalizados." />
+        <meta name="author" content="Darlin Portolatín Valdéz" />
+        <meta name="theme-color" content="#d81b60" />
+        <title>Darlin Personalizados | Catálogo de Productos Personalizados</title>
+
+        <!-- Open Graph (vista previa al compartir) -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Darlin Personalizados" />
+        <meta property="og:title" content="Darlin Personalizados | Catálogo de Productos Personalizados" />
+        <meta property="og:description" content="Tazas, termos, camisetas, gorras, llaveros y más, personalizados a tu gusto. Pídelos al instante por WhatsApp." />
+        <meta property="og:image" content="assets/img/bg-masthead.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+        <!-- Fuentes: conectamos antes y cargamos sin bloquear -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Estilos personalizados del catálogo-->
+        <link href="css/catalogo.css" rel="stylesheet" />
+        <!-- Chat de atención-->
+        <link href="css/chatbot.css" rel="stylesheet" />
+        <!-- Solicitud de pedidos-->
+        <link href="css/pedidos.css" rel="stylesheet" />
+        <!-- Marca la página como "con JS" antes de pintar: el catálogo arranca vacío.
+             Si catalogo.js no llegara a cargar, se quita la marca y se ven todos. -->
+        <script>
+            document.documentElement.classList.add('js');
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    if (!window.catalogoListo) document.documentElement.classList.remove('js');
+                }, 1500);
+            });
+        </script>
+    </head>
+    <body id="page-top">
+        <!-- Navegación -->
+        <nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand fw-bold" href="#page-top"><i class="bi-stars me-1"></i> Darlin Personalizados</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#filosofia">Filosofía</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li class="nav-item"><button type="button" class="nav-link btn-abrir-pedido" data-bs-toggle="modal" data-bs-target="#modal-pedido">Realizar pedido</button></li>
+                        <li class="nav-item ms-lg-2">
+                            <a class="nav-link nav-whatsapp" href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20información%20sobre%20sus%20productos%20personalizados." target="_blank" rel="noopener"><i class="bi-whatsapp me-1"></i> Pedir por WhatsApp</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <header class="masthead text-center">
+            <div class="container px-4 px-lg-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <span class="hero-kicker">Productos 100% personalizados</span>
+                        <h1 class="mb-0">Tu idea, convertida en un producto único</h1>
+                        <p class="hero-sub">Tazas, termos, camisetas, gorras, llaveros y más. Elige tu favorito, personalízalo y pídelo al instante por WhatsApp.</p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <button type="button" class="btn btn-rosa-solido" data-bs-toggle="modal" data-bs-target="#modal-pedido"><i class="bi-bag-plus me-2"></i>Realizar un pedido</button>
+                            <a class="btn btn-rosa" href="#catalogo"><i class="bi-grid me-2"></i>Ver catálogo</a>
+                            <a class="btn btn-ghost" href="https://wa.me/18492151857?text=Hola%20Darlin,%20tengo%20una%20idea%20para%20un%20producto%20personalizado." target="_blank" rel="noopener"><i class="bi-whatsapp me-2"></i>Cotizar un diseño</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="hero-scroll" href="#filosofia" aria-label="Bajar a la siguiente sección"><i class="bi-chevron-double-down"></i></a>
+        </header>
+
+        <!-- Filosofía Institucional -->
+        <section class="page-section py-5" id="filosofia">
+            <div class="container px-4 px-lg-5">
+                <div class="text-center mb-5">
+                    <div class="section-kicker mb-2">Quiénes somos</div>
+                    <h2 class="section-title mt-0">Filosofía Institucional</h2>
+                    <hr class="divider-oro" />
+                    <p>Los principios, valores, misión y visión que definen la identidad de nuestro emprendimiento.</p>
+                </div>
+
+                <div class="row g-4 justify-content-center mb-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="value-card">
+                            <span class="value-icon"><i class="bi-bullseye"></i></span>
+                            <h3>Misión</h3>
+                            <p class="mb-0">Ofrecer productos personalizados, creativos y de calidad, adaptados a los gustos y necesidades de nuestros clientes: tazas, termos, camisetas, gorras, platos y más, para expresar ideas, emociones, recuerdos y la identidad de personas, negocios y organizaciones.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="value-card">
+                            <span class="value-icon"><i class="bi-eye"></i></span>
+                            <h3>Visión</h3>
+                            <p class="mb-0">Ser un emprendimiento de personalización reconocido a nivel nacional por la calidad, creatividad e innovación de nuestros productos, logrando satisfacer a nuestros clientes y expandiendo nuestros servicios para convertirnos en una marca reconocida y confiable.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="value-card">
+                            <span class="value-icon"><i class="bi-shield-check"></i></span>
+                            <h3>Principio</h3>
+                            <p class="mb-0"><strong>Satisfacción del cliente:</strong> escuchamos y comprendemos las necesidades de cada cliente para ofrecerle un producto que cumpla o supere sus expectativas, revisando cada detalle del diseño y procurando entregar calidad en cada pedido.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="principio-box">
+                            <h3 class="h5 fw-bold mb-3"><i class="bi-heart text-danger me-2"></i>Nuestros valores</h3>
+                            <ul class="value-list">
+                                <li><strong>Creatividad:</strong> diseñamos piezas originales, innovadoras y atractivas, adaptadas a los gustos y preferencias de cada cliente.</li>
+                                <li><strong>Responsabilidad:</strong> cumplimos con nuestros compromisos de manera puntual y organizada, entregando los pedidos en el tiempo acordado.</li>
+                                <li><strong>Calidad:</strong> cuidamos cada detalle del diseño, los materiales y la elaboración para ofrecer productos bien terminados.</li>
+                                <li><strong>Respeto:</strong> valoramos las ideas, opiniones y preferencias de nuestros clientes y tomamos en cuenta sus sugerencias.</li>
+                                <li class="mb-0"><strong>Compromiso:</strong> trabajamos con dedicación para que cada producto personalizado cumpla con lo solicitado.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo de productos -->
+        <section class="page-section py-5" id="catalogo">
+            <div class="container px-4 px-lg-5">
+                <div class="text-center mb-4">
+                    <div class="section-kicker mb-2">Elige el tuyo</div>
+                    <h2 class="section-title mt-0">Nuestro Catálogo</h2>
+                    <hr class="divider-oro" />
+                    <p>Elige una categoría para ver sus productos y pídelo directo al WhatsApp, sin registros ni formularios.</p>
+                </div>
+
+                <!-- Filtro por categoría: el catálogo solo muestra lo que elijas -->
+                <div class="filtros" role="group" aria-label="Filtrar productos por categoría">
+                    <button type="button" class="filtro-btn" data-filtro="ceramica" aria-pressed="false"><i class="bi-fire me-1"></i> Cerámica</button>
+                    <button type="button" class="filtro-btn" data-filtro="bebidas" aria-pressed="false"><i class="bi-cup-straw me-1"></i> Bebidas</button>
+                    <button type="button" class="filtro-btn" data-filtro="ropa" aria-pressed="false"><i class="bi-tag me-1"></i> Ropa</button>
+                    <button type="button" class="filtro-btn" data-filtro="accesorios" aria-pressed="false"><i class="bi-collection me-1"></i> Accesorios</button>
+                    <button type="button" class="filtro-btn" data-filtro="hogar" aria-pressed="false"><i class="bi-house-heart me-1"></i> Hogar</button>
+                </div>
+                <p class="resultado-contador esperando" id="contador-texto" aria-live="polite">Elige una categoría para ver los productos</p>
+
+                <div class="row gx-4 gx-lg-5" id="grid-productos">
+                    <!-- Producto 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="ceramica">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/1.png" alt="Taza blanca personalizada con diseño a elección" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 1</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Cerámica</span>
+                                <h3 class="h5 fw-bold mb-2">Tazas Blancas</h3>
+                                <p class="small flex-grow-1">Personalízalas con la foto, frase o diseño que prefieras. Ideales para regalar.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>7.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Taza%20Blanca%20de%20la%20foto%201%20(USD$7.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="ceramica">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/2.png" alt="Taza blanca personalizada con diseño a elección" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 2</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Cerámica</span>
+                                <h3 class="h5 fw-bold mb-2">Tazas Blancas</h3>
+                                <p class="small flex-grow-1">Personalízalas con la foto, frase o diseño que prefieras. Ideales para regalar.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>7.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Taza%20Blanca%20de%20la%20foto%202%20(USD$7.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="bebidas">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/3.png" alt="Termo de acero inoxidable personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 3</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Bebidas</span>
+                                <h3 class="h5 fw-bold mb-2">Termo Acero Inoxidable</h3>
+                                <p class="small flex-grow-1">Mantiene tus bebidas frías o calientes por horas, con grabado láser o impresión.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>13.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Termo%20de%20la%20foto%203%20(USD$13.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="bebidas">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/4.png" alt="Termo de acero inoxidable personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 4</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Bebidas</span>
+                                <h3 class="h5 fw-bold mb-2">Termo Acero Inoxidable</h3>
+                                <p class="small flex-grow-1">Mantiene tus bebidas frías o calientes por horas, con grabado láser o impresión.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>23.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Termo%20de%20la%20foto%204%20(USD$23.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="ropa">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/5.png" alt="Gorra personalizada con diseño propio" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 5</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Ropa</span>
+                                <h3 class="h5 fw-bold mb-2">Gorras con Diseño</h3>
+                                <p class="small flex-grow-1">Gorras ajustables con bordado o impresión de alta definición, perfectas para tu marca.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>7.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Gorra%20de%20la%20foto%205%20(USD$7.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="ropa">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/6.png" alt="Camiseta personalizada con frase o foto" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 6</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Ropa</span>
+                                <h3 class="h5 fw-bold mb-2">Camisetas Personalizadas</h3>
+                                <p class="small flex-grow-1">Camisetas con las frases, fotos o diseños que tú quieras, en talla y color a elección.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>7.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Camiseta%20de%20la%20foto%206%20(USD$7.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 7 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/7.png" alt="Llavero de acrílico personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 7</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Llavero de Acrílico</h3>
+                                <p class="small flex-grow-1">Llaveros personalizados con nombres, fotos o códigos de Spotify.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>6.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Llavero%20de%20acrílico%20de%20la%20foto%207%20(USD$6.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 8 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/8.png" alt="Llavero de acrílico personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 8</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Llavero de Acrílico</h3>
+                                <p class="small flex-grow-1">Llaveros personalizados con nombres, fotos o códigos de Spotify.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>6.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Llavero%20de%20acrílico%20de%20la%20foto%208%20(USD$6.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 9 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/9.png" alt="Llavero de acrílico personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 9</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Llavero de Acrílico</h3>
+                                <p class="small flex-grow-1">Llaveros personalizados con nombres, fotos o códigos de Spotify.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>6.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Llavero%20de%20acrílico%20de%20la%20foto%209%20(USD$6.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 10 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/10.png" alt="Llavero de acrílico personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 10</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Llavero de Acrílico</h3>
+                                <p class="small flex-grow-1">Llaveros personalizados con nombres, fotos o códigos de Spotify.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>6.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Llavero%20de%20acrílico%20de%20la%20foto%2010%20(USD$6.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 11 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="bebidas">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/11.png" alt="Termo de acero inoxidable personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 11</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Bebidas</span>
+                                <h3 class="h5 fw-bold mb-2">Termo Acero Inoxidable</h3>
+                                <p class="small flex-grow-1">Mantiene tus bebidas frías o calientes por horas, con grabado láser o impresión.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>17.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Termo%20de%20la%20foto%2011%20(USD$17.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 12 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="bebidas">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/12.png" alt="Termo de acero inoxidable personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 12</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Bebidas</span>
+                                <h3 class="h5 fw-bold mb-2">Termo Acero Inoxidable</h3>
+                                <p class="small flex-grow-1">Mantiene tus bebidas frías o calientes por horas, con grabado láser o impresión.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>17.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Termo%20de%20la%20foto%2012%20(USD$17.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 13 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="hogar">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/13.png" alt="Plato decorativo personalizado con soporte" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 13</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Hogar</span>
+                                <h3 class="h5 fw-bold mb-2">Platos Decorativos</h3>
+                                <p class="small flex-grow-1">Platos de cerámica con soporte, perfectos para recuerdos y decoración.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>3.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Plato%20Decorativo%20de%20la%20foto%2013%20(USD$3.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 14 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/14.png" alt="Cover de celular personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 14</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Cover Personalizado</h3>
+                                <p class="small flex-grow-1">Funda para celular con tu foto, nombre o diseño favorito.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>8.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Cover%20de%20la%20foto%2014%20(USD$8.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 15 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="hogar">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/15.png" alt="Rompecabezas personalizado con tus fotos" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 15</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Hogar</span>
+                                <h3 class="h5 fw-bold mb-2">Rompecabezas a tu Estilo</h3>
+                                <p class="small flex-grow-1">Rompecabezas personalizados con tus fotos, nombres o recuerdos favoritos.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>12.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Rompecabezas%20de%20la%20foto%2015%20(USD$12.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 16 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="hogar">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/16.png" alt="Pegatina personalizada para refrigerador" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 16</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Hogar</span>
+                                <h3 class="h5 fw-bold mb-2">Pegatinas Personalizadas</h3>
+                                <p class="small flex-grow-1">Pegatinas con nombres o fotos para diseñar tu refri, laptop o notas.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>2.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Pegatina%20de%20la%20foto%2016%20(USD$2.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 17 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/17.png" alt="Llavero en forma de cruz personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 17</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Llaveros en Cruz</h3>
+                                <p class="small flex-grow-1">Llaveros personalizados en forma de cruz con nombres o fotos.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>6.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Llavero%20en%20Cruz%20de%20la%20foto%2017%20(USD$6.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 18 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="accesorios">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/18.png" alt="Llavero en forma de corazón personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 18</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Accesorios</span>
+                                <h3 class="h5 fw-bold mb-2">Llaveros en Corazón</h3>
+                                <p class="small flex-grow-1">Llaveros personalizados en forma de corazón, ideales para compartir con amigos.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>6.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Llavero%20en%20Corazón%20de%20la%20foto%2018%20(USD$6.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 19 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="bebidas">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/19.png" alt="Vaso de acero inoxidable personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 19</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Bebidas</span>
+                                <h3 class="h5 fw-bold mb-2">Vaso Acero Inoxidable</h3>
+                                <p class="small flex-grow-1">Mantiene tus bebidas frías o calientes por horas, con grabado láser o impresión.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>11.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Vaso%20de%20la%20foto%2019%20(USD$11.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 20 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="bebidas">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/20.png" alt="Vaso de acero inoxidable personalizado" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 20</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Bebidas</span>
+                                <h3 class="h5 fw-bold mb-2">Vaso Acero Inoxidable</h3>
+                                <p class="small flex-grow-1">Mantiene tus bebidas frías o calientes por horas, con grabado láser o impresión.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>11.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20el%20Vaso%20de%20la%20foto%2020%20(USD$11.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 21 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="ceramica">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/21.png" alt="Taza blanca con mango de corazón personalizada" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 21</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Cerámica</span>
+                                <h3 class="h5 fw-bold mb-2">Taza con Mango de Corazón</h3>
+                                <p class="small flex-grow-1">Taza blanca con mango en forma de corazón, personalizada con tu foto o frase.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>7.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Taza%20con%20Mango%20de%20Corazón%20de%20la%20foto%2021%20(USD$7.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 22 -->
+                    <div class="col-lg-4 col-md-6 mb-4 producto" data-categoria="hogar">
+                        <div class="card product-card h-100">
+                            <div class="product-img-wrap">
+                                <img class="product-img" src="assets/img/portfolio/fullsize/22.png" alt="Tabla de cocina personalizada con soporte" loading="lazy" decoding="async" />
+                                <span class="product-num">Foto 22</span>
+                            </div>
+                            <div class="card-body d-flex flex-column p-4">
+                                <span class="badge-category align-self-start mb-2">Hogar</span>
+                                <h3 class="h5 fw-bold mb-2">Tabla de Cocina</h3>
+                                <p class="small flex-grow-1">Tabla para picar con soporte, personalizada para regalar o decorar tu cocina.</p>
+                                <div class="d-flex align-items-center justify-content-between mt-3 mb-3">
+                                    <span class="product-price"><span class="moneda">USD$</span>13.00</span>
+                                </div>
+                                <a href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20ordenar%20la%20Tabla%20de%20Cocina%20de%20la%20foto%2022%20(USD$13.00)." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                    <i class="bi-whatsapp me-2"></i> Pedir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="vacio-msg" id="msg-vacio"><i class="bi-emoji-frown d-block display-5 mb-3"></i>No hay productos en esta categoría todavía.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section class="page-section py-5" id="contacto">
+            <div class="container px-4 px-lg-5 text-center">
+                <div class="section-kicker mb-2" style="color: var(--dorado-claro);">Hagámoslo realidad</div>
+                <h2 class="fw-bold">¿Tienes un diseño o idea especial en mente?</h2>
+                <hr class="divider-oro" />
+                <p class="mb-4">Escríbenos para cotizar pedidos al por mayor o diseños completamente a medida.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <button type="button" class="btn btn-rosa btn-lg" data-bs-toggle="modal" data-bs-target="#modal-pedido"><i class="bi-bag-plus me-2"></i> Realizar un pedido</button>
+                    <a class="btn btn-ghost btn-lg" href="https://wa.me/18492151857?text=Hola%20Darlin,%20tengo%20una%20idea%20para%20un%20producto%20personalizado." target="_blank" rel="noopener">
+                        <i class="bi-whatsapp me-2"></i> Escríbenos al WhatsApp
+                    </a>
+                </div>
+                <div class="contacto-datos">
+                    <span><i class="bi-telephone-fill"></i> +1 (849) 215-1857</span>
+                    <span><i class="bi-lightning-charge-fill"></i> Respuesta rápida</span>
+                    <span><i class="bi-chat-dots-fill"></i> Atención personalizada</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="row gy-4">
+                    <div class="col-lg-5">
+                        <div class="footer-brand h5 mb-2"><i class="bi-stars me-1"></i> Darlin Personalizados</div>
+                        <p class="small mb-2">Productos personalizados con creatividad, calidad y compromiso: tazas, termos, camisetas, gorras, llaveros y más.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="fw-bold text-white mb-2">Navegación</div>
+                        <ul class="footer-links small">
+                            <li><a href="#filosofia">Filosofía</a></li>
+                            <li><a href="#catalogo">Catálogo</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="fw-bold text-white mb-2">Pedidos</div>
+                        <ul class="footer-links small">
+                            <li><a href="https://wa.me/18492151857" target="_blank" rel="noopener"><i class="bi-whatsapp me-1"></i> +1 (849) 215-1857</a></li>
+                            <li><a href="tel:+18492151857"><i class="bi-telephone me-1"></i> Llámanos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="border-secondary my-4" />
+                <div class="small text-center mb-0">Copyright &copy; 2026 - Darlin Portolatín Valdéz. Todos los derechos reservados.</div>
+            </div>
+        </footer>
+
+        <!-- Chat de atención: guía al cliente y arma el pedido -->
+        <button type="button" id="chat-abrir" aria-expanded="false" aria-controls="chat-ventana">
+            <i class="bi-chat-dots-fill"></i>
+            <span class="chat-abrir-texto">¿Necesitas ayuda?</span>
+        </button>
+
+        <div class="chat-ventana" id="chat-ventana" role="dialog" aria-label="Asistente de Darlin Personalizados" aria-hidden="true">
+            <div class="chat-header">
+                <div class="chat-avatar"><i class="bi-stars"></i></div>
+                <div>
+                    <div class="chat-titulo">Darlin Personalizados</div>
+                    <div class="chat-estado">Respuesta inmediata</div>
+                </div>
+                <button type="button" class="chat-cerrar" aria-label="Cerrar chat"><i class="bi-x-lg"></i></button>
+            </div>
+            <div class="chat-mensajes" id="chat-mensajes" aria-live="polite"></div>
+            <div class="chat-respuestas" id="chat-respuestas"></div>
+            <form class="chat-form" id="chat-form">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off" aria-label="Escribe tu mensaje" />
+                <button type="submit" aria-label="Enviar mensaje"><i class="bi-send-fill"></i></button>
+            </form>
+        </div>
+
+        <!-- Modal: realizar un pedido -->
+        <div class="modal fade" id="modal-pedido" tabindex="-1" aria-labelledby="modal-pedido-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                <div class="modal-content pedido-modal">
+                    <form id="form-pedido" novalidate>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal-pedido-titulo"><i class="bi-bag-plus me-2"></i>Realizar un pedido</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="pedido-intro">Cuéntanos qué quieres y te confirmamos por WhatsApp. Quedará como <strong>pendiente</strong> hasta que lo verifiquemos.</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="p-nombre">Nombre completo *</label>
+                                    <input type="text" class="form-control" id="p-nombre" name="nombre" required maxlength="120" autocomplete="name" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="p-edad">Edad</label>
+                                    <input type="number" class="form-control" id="p-edad" name="edad" min="1" max="120" inputmode="numeric" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="p-sexo">Sexo</label>
+                                    <select class="form-select" id="p-sexo" name="sexo">
+                                        <option value="">Elige...</option>
+                                        <option>Femenino</option>
+                                        <option>Masculino</option>
+                                        <option>Otro</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="p-telefono">Número de teléfono *</label>
+                                    <input type="tel" class="form-control" id="p-telefono" name="telefono" required maxlength="30" inputmode="tel" autocomplete="tel" placeholder="Ej: 809 000 0000" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="p-producto">¿Qué quieres? *</label>
+                                    <input type="text" class="form-control" id="p-producto" name="producto" list="lista-productos" required maxlength="200" placeholder="Ej: Taza blanca personalizada" />
+                                    <datalist id="lista-productos">
+                                        <option value="Taza blanca personalizada"></option>
+                                        <option value="Taza con mango de corazón"></option>
+                                        <option value="Termo de acero inoxidable"></option>
+                                        <option value="Vaso de acero inoxidable"></option>
+                                        <option value="Camiseta personalizada"></option>
+                                        <option value="Gorra con diseño"></option>
+                                        <option value="Llavero de acrílico"></option>
+                                        <option value="Llavero en cruz"></option>
+                                        <option value="Llavero en corazón"></option>
+                                        <option value="Plato decorativo"></option>
+                                        <option value="Cover para celular"></option>
+                                        <option value="Rompecabezas personalizado"></option>
+                                        <option value="Pegatinas personalizadas"></option>
+                                        <option value="Tabla de cocina"></option>
+                                    </datalist>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="p-precio">Precio (USD$)</label>
+                                    <input type="number" class="form-control" id="p-precio" name="precio" min="0" step="0.01" inputmode="decimal" placeholder="Si no lo sabes, lo confirmamos" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="p-notas">Detalles / personalización</label>
+                                    <textarea class="form-control" id="p-notas" name="notas" rows="3" maxlength="500" placeholder="Foto, frase, color, talla, cantidad..."></textarea>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger mt-3 mb-0 d-none" id="pedido-error" role="alert"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-rosa-solido" id="pedido-enviar"><i class="bi-send me-2"></i>Enviar pedido</button>
+                        </div>
+                    </form>
+
+                    <div class="pedido-exito d-none" id="pedido-exito">
+                        <div class="modal-body text-center">
+                            <div class="exito-check"><i class="bi-check-lg"></i></div>
+                            <h5 class="fw-bold mt-3 mb-2">¡Pedido registrado!</h5>
+                            <p class="mb-2">Guárdalo con este código de compra:</p>
+                            <div class="pedido-codigo" id="pedido-codigo">DP-XXXXXX</div>
+                            <p class="estado-pendiente"><i class="bi-hourglass-split me-1"></i> Estado: <strong>Pendiente</strong> de confirmación</p>
+                            <p class="small text-muted mb-3">Tu pedido ya nos llegó por WhatsApp. Si quieres, envíanos el detalle tú mismo para confirmarlo más rápido.</p>
+                            <a href="#" id="pedido-wa" class="btn btn-whatsapp w-100" target="_blank" rel="noopener"><i class="bi-whatsapp me-2"></i>Enviar también por WhatsApp</a>
+                            <button type="button" class="btn btn-link mt-2" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón subir al inicio -->
+        <button type="button" id="btn-subir" aria-label="Volver arriba"><i class="bi-arrow-up"></i></button>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- Filtro del catálogo y botones extra-->
+        <script src="js/catalogo.js"></script>
+        <!-- Chat de atención-->
+        <script src="js/chatbot.js"></script>
+        <!-- Solicitud de pedidos-->
+        <script src="js/pedidos.js"></script>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,239 @@
+/* ============================================================
+   Panel de pedidos - Darlin Personalizados
+   ============================================================ */
+
+.admin-body {
+    background: var(--crema);
+    min-height: 100vh;
+}
+
+/* --------------------------- BARRA SUPERIOR --------------------------- */
+
+.admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    color: #fff;
+    background: linear-gradient(135deg, var(--rosa-oscuro), var(--rosa));
+    box-shadow: 0 4px 18px rgba(173, 20, 87, 0.25);
+}
+
+.admin-topbar-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0.9rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.admin-brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.admin-fecha {
+    font-size: 0.82rem;
+    opacity: 0.9;
+    text-transform: capitalize;
+}
+
+/* --------------------------- ACCESO --------------------------- */
+
+.admin-login {
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 4rem);
+    padding: 1.5rem;
+}
+
+.admin-login-card {
+    width: min(24rem, 100%);
+    background: #fff;
+    border: 1px solid rgba(45, 42, 50, 0.07);
+    border-radius: 18px;
+    padding: 2rem 1.7rem;
+    text-align: center;
+    box-shadow: var(--sombra-alta);
+}
+
+.admin-login-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-bottom: 0.8rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--rosa), var(--rosa-oscuro));
+    box-shadow: 0 12px 26px rgba(216, 27, 96, 0.35);
+}
+
+.admin-input {
+    width: 100%;
+    border: 1.5px solid rgba(45, 42, 50, 0.15);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: var(--tinta);
+    background: var(--crema);
+}
+
+.admin-input:focus {
+    outline: none;
+    border-color: var(--rosa);
+}
+
+/* --------------------------- PANEL --------------------------- */
+
+.admin-panel {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem 1.2rem 4rem;
+}
+
+.admin-resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.admin-stat {
+    background: #fff;
+    border: 1px solid rgba(45, 42, 50, 0.07);
+    border-top: 4px solid var(--rosa);
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: var(--sombra);
+}
+
+.admin-stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--rosa);
+    line-height: 1.1;
+}
+
+.admin-stat-label {
+    font-size: 0.82rem;
+    color: var(--gris-texto);
+}
+
+.admin-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.admin-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* --------------------------- TARJETAS --------------------------- */
+
+.admin-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+    gap: 1rem;
+}
+
+.admin-card {
+    background: #fff;
+    border: 1px solid rgba(45, 42, 50, 0.07);
+    border-left: 5px solid #f0b429;
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--sombra);
+}
+
+.admin-card.es-realizado {
+    border-left-color: #25d366;
+    opacity: 0.92;
+}
+
+.admin-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.admin-card-codigo {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--tinta);
+}
+
+.admin-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+}
+
+.badge-pendiente {
+    color: #8a6400;
+    background: #fff4d6;
+}
+
+.badge-realizado {
+    color: #14804a;
+    background: #d8f5e4;
+}
+
+.admin-card-nombre {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--tinta);
+    margin: 0 0 0.4rem;
+}
+
+.admin-card-tel,
+.admin-card-prod,
+.admin-card-notas,
+.admin-card-datos {
+    margin: 0 0 0.35rem;
+    font-size: 0.9rem;
+    color: var(--gris-texto);
+}
+
+.admin-card-notas {
+    font-style: italic;
+}
+
+.admin-card-datos {
+    font-size: 0.8rem;
+    color: #8b8493;
+}
+
+.admin-card-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.admin-vacio {
+    text-align: center;
+    color: var(--gris-texto);
+    padding: 3rem 1rem;
+}
+
+@media (max-width: 575.98px) {
+    .admin-resumen {
+        grid-template-columns: 1fr;
+    }
+}

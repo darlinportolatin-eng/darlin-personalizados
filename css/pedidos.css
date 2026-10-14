@@ -1,0 +1,108 @@
+/* ============================================================
+   Solicitud de pedidos - Darlin Personalizados
+   ============================================================ */
+
+/* Botón del menú que abre el modal (hereda el estilo de .nav-link) */
+.btn-abrir-pedido {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --------------------------- MODAL --------------------------- */
+
+.pedido-modal {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(45, 42, 50, 0.28);
+}
+
+.pedido-modal .modal-header {
+    color: #fff;
+    background: linear-gradient(135deg, var(--rosa-oscuro), var(--rosa));
+    border-bottom: none;
+}
+
+.pedido-modal .modal-title {
+    font-weight: 700;
+}
+
+.pedido-modal .btn-close {
+    filter: invert(1) grayscale(1) brightness(2);
+    opacity: 0.9;
+}
+
+.pedido-modal .modal-body {
+    padding: 1.6rem;
+}
+
+.pedido-modal .modal-footer {
+    border-top: 1px solid rgba(45, 42, 50, 0.08);
+    padding: 1rem 1.6rem;
+}
+
+.pedido-intro {
+    color: var(--gris-texto);
+    margin-bottom: 1.2rem;
+}
+
+.pedido-modal .form-label {
+    font-weight: 600;
+    color: var(--tinta);
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.pedido-modal .form-control,
+.pedido-modal .form-select {
+    border: 1.5px solid rgba(45, 42, 50, 0.15);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: var(--tinta);
+    background: #fff;
+}
+
+.pedido-modal .form-control:focus,
+.pedido-modal .form-select:focus {
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 0.2rem rgba(216, 27, 96, 0.15);
+}
+
+/* --------------------------- ÉXITO --------------------------- */
+
+.exito-check {
+    display: inline-grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #25d366, #1ebd56);
+    box-shadow: 0 12px 26px rgba(37, 211, 102, 0.4);
+}
+
+.pedido-codigo {
+    display: inline-block;
+    margin: 0.5rem auto 1rem;
+    padding: 0.7rem 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--rosa-oscuro);
+    background: var(--rosa-humo);
+    border: 2px dashed var(--dorado);
+    border-radius: 12px;
+}
+
+.estado-pendiente {
+    color: var(--gris-texto);
+    margin-bottom: 0.4rem;
+}
+
+.estado-pendiente strong {
+    color: #b8860b;
+}

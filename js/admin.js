@@ -1,4 +1,4 @@
-/* Panel de pedidos - Darlin Personalizados.
+/* Panel de pedidos - Estampado Darlin.
    Muestra los pedidos guardados en la base de datos (D1) y permite
    cambiar su estado entre "pendiente" y "realizado". */
 (function () {
@@ -86,6 +86,7 @@
         var datos = [];
         if (p.edad) datos.push('Edad: ' + esc(p.edad));
         if (p.sexo) datos.push('Sexo: ' + esc(p.sexo));
+        if (p.cedula_ultimos4) datos.push('Cédula terminada en: ' + esc(p.cedula_ultimos4));
         if (p.precio !== null && p.precio !== undefined && p.precio !== '') {
             datos.push('Precio: USD$' + esc(p.precio));
         }
@@ -112,7 +113,7 @@
         var wa = document.createElement('a');
         wa.className = 'btn btn-whatsapp btn-sm';
         wa.href = 'https://wa.me/' + numero(p.telefono) + '?text=' +
-            encodeURIComponent('Hola ' + p.nombre + ', sobre tu pedido ' + p.codigo + ' de Darlin Personalizados:');
+            encodeURIComponent('Hola ' + p.nombre + ', sobre tu pedido ' + p.codigo + ' de Estampado Darlin:');
         wa.target = '_blank';
         wa.rel = 'noopener';
         wa.innerHTML = '<i class="bi-whatsapp me-1"></i>WhatsApp';

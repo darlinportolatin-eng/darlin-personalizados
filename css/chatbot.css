@@ -1,5 +1,5 @@
 /* ============================================================
-   Chat de atención - Darlin Personalizados
+   Chat de atención - Estampado Darlin
    ============================================================ */
 
 #chat-abrir {
@@ -18,14 +18,14 @@
     font-weight: 600;
     color: #fff;
     background: linear-gradient(135deg, var(--rosa), var(--rosa-oscuro));
-    box-shadow: 0 12px 28px rgba(216, 27, 96, 0.45);
+    box-shadow: 0 12px 28px rgba(23, 105, 170, 0.35);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #chat-abrir:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 34px rgba(173, 20, 87, 0.5);
+    box-shadow: 0 18px 34px rgba(16, 74, 124, 0.4);
 }
 
 /* Se oculta mientras la ventana está abierta */
@@ -51,7 +51,7 @@
     background: var(--crema);
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 24px 60px rgba(45, 42, 50, 0.35);
+    box-shadow: 0 24px 60px rgba(17, 24, 39, 0.35);
     opacity: 0;
     visibility: hidden;
     transform: translateY(18px) scale(0.98);
@@ -104,7 +104,7 @@
     height: 0.5rem;
     margin-right: 0.35rem;
     border-radius: 50%;
-    background: #4ade80;
+    background: var(--rosa-claro);
     vertical-align: middle;
 }
 
@@ -132,7 +132,7 @@
     flex-direction: column;
     gap: 0.6rem;
     background:
-        radial-gradient(circle at 15% 10%, rgba(216, 27, 96, 0.06), transparent 55%),
+        radial-gradient(circle at 15% 10%, rgba(23, 105, 170, 0.06), transparent 55%),
         var(--crema);
 }
 
@@ -162,9 +162,9 @@
     align-self: flex-start;
     background: #fff;
     color: var(--tinta);
-    border: 1px solid rgba(45, 42, 50, 0.07);
+    border: 1px solid rgba(17, 24, 39, 0.07);
     border-bottom-left-radius: 4px;
-    box-shadow: 0 4px 12px rgba(45, 42, 50, 0.06);
+    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.06);
 }
 
 .chat-tu {
@@ -268,12 +268,12 @@
     gap: 0.5rem;
     padding: 0.7rem 0.9rem;
     background: #fff;
-    border-top: 1px solid rgba(45, 42, 50, 0.08);
+    border-top: 1px solid rgba(17, 24, 39, 0.08);
 }
 
 .chat-form input {
     flex: 1;
-    border: 1.5px solid rgba(45, 42, 50, 0.15);
+    border: 1.5px solid rgba(17, 24, 39, 0.15);
     border-radius: 999px;
     padding: 0.55rem 1rem;
     font-family: 'Poppins', system-ui, sans-serif;

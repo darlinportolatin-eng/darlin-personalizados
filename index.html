@@ -21,15 +21,15 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Catálogo de productos personalizados: tazas, termos, camisetas, gorras, llaveros, platos y más. Pídelos al instante por WhatsApp - Darlin Personalizados." />
+        <meta name="description" content="Catálogo de productos personalizados: tazas, termos, camisetas, gorras, llaveros, platos y más. Pídelos al instante por WhatsApp - Estampado Darlin." />
         <meta name="author" content="Darlin Portolatín Valdéz" />
-        <meta name="theme-color" content="#d81b60" />
-        <title>Darlin Personalizados | Catálogo de Productos Personalizados</title>
+        <meta name="theme-color" content="#1769aa" />
+        <title>Estampado Darlin | Catálogo de Productos Personalizados</title>
 
         <!-- Open Graph (vista previa al compartir) -->
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Darlin Personalizados" />
-        <meta property="og:title" content="Darlin Personalizados | Catálogo de Productos Personalizados" />
+        <meta property="og:site_name" content="Estampado Darlin" />
+        <meta property="og:title" content="Estampado Darlin | Catálogo de Productos Personalizados" />
         <meta property="og:description" content="Tazas, termos, camisetas, gorras, llaveros y más, personalizados a tu gusto. Pídelos al instante por WhatsApp." />
         <meta property="og:image" content="assets/img/bg-masthead.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -53,8 +53,8 @@
         <link href="css/chatbot.css" rel="stylesheet" />
         <!-- Solicitud de pedidos-->
         <link href="css/pedidos.css" rel="stylesheet" />
-        <!-- Marca la página como "con JS" antes de pintar: el catálogo arranca vacío.
-             Si catalogo.js no llegara a cargar, se quita la marca y se ven todos. -->
+        <!-- Mantiene ocultas las tarjetas mientras se configura el filtro inicial.
+             Si catalogo.js no llegara a cargar, se quita la marca y se ven todas. -->
         <script>
             document.documentElement.classList.add('js');
             window.addEventListener('load', function () {
@@ -68,17 +68,15 @@
         <!-- Navegación -->
         <nav class="navbar navbar-expand-lg fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand fw-bold" href="#page-top"><i class="bi-stars me-1"></i> Darlin Personalizados</a>
+                <a class="navbar-brand fw-bold" href="#page-top"><i class="bi-stars me-1"></i> Estampado Darlin</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#filosofia">Filosofía</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#filosofia" id="nav-filosofia">Filosofía</a></li>
                         <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li class="nav-item"><button type="button" class="nav-link btn-carrito-nav" id="carrito-abrir" data-bs-toggle="modal" data-bs-target="#modal-carrito"><i class="bi-cart3 me-1"></i> Carrito <span class="carrito-cantidad" id="carrito-cantidad">0</span></button></li>
                         <li class="nav-item"><button type="button" class="nav-link btn-abrir-pedido" data-bs-toggle="modal" data-bs-target="#modal-pedido">Realizar pedido</button></li>
-                        <li class="nav-item ms-lg-2">
-                            <a class="nav-link nav-whatsapp" href="https://wa.me/18492151857?text=Hola%20Darlin,%20quiero%20información%20sobre%20sus%20productos%20personalizados." target="_blank" rel="noopener"><i class="bi-whatsapp me-1"></i> Pedir por WhatsApp</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -92,10 +90,19 @@
                         <span class="hero-kicker">Productos 100% personalizados</span>
                         <h1 class="mb-0">Tu idea, convertida en un producto único</h1>
                         <p class="hero-sub">Tazas, termos, camisetas, gorras, llaveros y más. Elige tu favorito, personalízalo y pídelo al instante por WhatsApp.</p>
-                        <div class="d-flex flex-wrap gap-3 justify-content-center">
-                            <button type="button" class="btn btn-rosa-solido" data-bs-toggle="modal" data-bs-target="#modal-pedido"><i class="bi-bag-plus me-2"></i>Realizar un pedido</button>
-                            <a class="btn btn-rosa" href="#catalogo"><i class="bi-grid me-2"></i>Ver catálogo</a>
-                            <a class="btn btn-ghost" href="https://wa.me/18492151857?text=Hola%20Darlin,%20tengo%20una%20idea%20para%20un%20producto%20personalizado." target="_blank" rel="noopener"><i class="bi-whatsapp me-2"></i>Cotizar un diseño</a>
+                        <div class="hero-productos" aria-label="Algunos de nuestros productos">
+                            <figure class="hero-producto">
+                                <img src="assets/img/portfolio/fullsize/1.png" alt="Taza blanca personalizada" decoding="async" fetchpriority="high" />
+                                <figcaption>Tazas personalizadas</figcaption>
+                            </figure>
+                            <figure class="hero-producto">
+                                <img src="assets/img/portfolio/fullsize/3.png" alt="Termo de acero inoxidable personalizado" decoding="async" fetchpriority="high" />
+                                <figcaption>Termos personalizados</figcaption>
+                            </figure>
+                            <figure class="hero-producto">
+                                <img src="assets/img/portfolio/fullsize/6.png" alt="Camiseta personalizada" decoding="async" fetchpriority="high" />
+                                <figcaption>Camisetas personalizadas</figcaption>
+                            </figure>
                         </div>
                     </div>
                 </div>
@@ -104,7 +111,7 @@
         </header>
 
         <!-- Filosofía Institucional -->
-        <section class="page-section py-5" id="filosofia">
+        <section class="page-section py-5" id="filosofia" hidden>
             <div class="container px-4 px-lg-5">
                 <div class="text-center mb-5">
                     <div class="section-kicker mb-2">Quiénes somos</div>
@@ -140,7 +147,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
                         <div class="principio-box">
-                            <h3 class="h5 fw-bold mb-3"><i class="bi-heart text-danger me-2"></i>Nuestros valores</h3>
+                            <h3 class="h5 fw-bold mb-3"><i class="bi-heart me-2"></i>Nuestros valores</h3>
                             <ul class="value-list">
                                 <li><strong>Creatividad:</strong> diseñamos piezas originales, innovadoras y atractivas, adaptadas a los gustos y preferencias de cada cliente.</li>
                                 <li><strong>Responsabilidad:</strong> cumplimos con nuestros compromisos de manera puntual y organizada, entregando los pedidos en el tiempo acordado.</li>
@@ -161,18 +168,19 @@
                     <div class="section-kicker mb-2">Elige el tuyo</div>
                     <h2 class="section-title mt-0">Nuestro Catálogo</h2>
                     <hr class="divider-oro" />
-                    <p>Elige una categoría para ver sus productos y pídelo directo al WhatsApp, sin registros ni formularios.</p>
+                    <p>Explora todos los productos y agrégalos al carrito para ver el total de tu pedido.</p>
                 </div>
 
-                <!-- Filtro por categoría: el catálogo solo muestra lo que elijas -->
+                <!-- Filtro por categoría -->
                 <div class="filtros" role="group" aria-label="Filtrar productos por categoría">
+                    <button type="button" class="filtro-btn active" data-filtro="todos" aria-pressed="true"><i class="bi-grid me-1"></i> Todos</button>
                     <button type="button" class="filtro-btn" data-filtro="ceramica" aria-pressed="false"><i class="bi-fire me-1"></i> Cerámica</button>
                     <button type="button" class="filtro-btn" data-filtro="bebidas" aria-pressed="false"><i class="bi-cup-straw me-1"></i> Bebidas</button>
                     <button type="button" class="filtro-btn" data-filtro="ropa" aria-pressed="false"><i class="bi-tag me-1"></i> Ropa</button>
                     <button type="button" class="filtro-btn" data-filtro="accesorios" aria-pressed="false"><i class="bi-collection me-1"></i> Accesorios</button>
                     <button type="button" class="filtro-btn" data-filtro="hogar" aria-pressed="false"><i class="bi-house-heart me-1"></i> Hogar</button>
                 </div>
-                <p class="resultado-contador esperando" id="contador-texto" aria-live="polite">Elige una categoría para ver los productos</p>
+                <p class="resultado-contador" id="contador-texto" aria-live="polite">22 productos</p>
 
                 <div class="row gx-4 gx-lg-5" id="grid-productos">
                     <!-- Producto 1 -->
@@ -651,9 +659,6 @@
                 <p class="mb-4">Escríbenos para cotizar pedidos al por mayor o diseños completamente a medida.</p>
                 <div class="d-flex flex-wrap gap-3 justify-content-center">
                     <button type="button" class="btn btn-rosa btn-lg" data-bs-toggle="modal" data-bs-target="#modal-pedido"><i class="bi-bag-plus me-2"></i> Realizar un pedido</button>
-                    <a class="btn btn-ghost btn-lg" href="https://wa.me/18492151857?text=Hola%20Darlin,%20tengo%20una%20idea%20para%20un%20producto%20personalizado." target="_blank" rel="noopener">
-                        <i class="bi-whatsapp me-2"></i> Escríbenos al WhatsApp
-                    </a>
                 </div>
                 <div class="contacto-datos">
                     <span><i class="bi-telephone-fill"></i> +1 (849) 215-1857</span>
@@ -668,7 +673,7 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gy-4">
                     <div class="col-lg-5">
-                        <div class="footer-brand h5 mb-2"><i class="bi-stars me-1"></i> Darlin Personalizados</div>
+                        <div class="footer-brand h5 mb-2"><i class="bi-stars me-1"></i> Estampado Darlin</div>
                         <p class="small mb-2">Productos personalizados con creatividad, calidad y compromiso: tazas, termos, camisetas, gorras, llaveros y más.</p>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -698,11 +703,11 @@
             <span class="chat-abrir-texto">¿Necesitas ayuda?</span>
         </button>
 
-        <div class="chat-ventana" id="chat-ventana" role="dialog" aria-label="Asistente de Darlin Personalizados" aria-hidden="true">
+        <div class="chat-ventana" id="chat-ventana" role="dialog" aria-label="Asistente de Estampado Darlin" aria-hidden="true">
             <div class="chat-header">
                 <div class="chat-avatar"><i class="bi-stars"></i></div>
                 <div>
-                    <div class="chat-titulo">Darlin Personalizados</div>
+                    <div class="chat-titulo">Estampado Darlin</div>
                     <div class="chat-estado">Respuesta inmediata</div>
                 </div>
                 <button type="button" class="chat-cerrar" aria-label="Cerrar chat"><i class="bi-x-lg"></i></button>
@@ -715,6 +720,30 @@
             </form>
         </div>
 
+        <!-- Modal: carrito -->
+        <div class="modal fade" id="modal-carrito" tabindex="-1" aria-labelledby="modal-carrito-titulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                <div class="modal-content carrito-modal">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-carrito-titulo"><i class="bi-cart3 me-2"></i>Tu carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carrito-items" class="carrito-items" aria-live="polite"></div>
+                        <p id="carrito-vacio" class="carrito-vacio mb-0">Aún no has agregado productos. Explora el catálogo para comenzar.</p>
+                        <div class="carrito-total">
+                            <span>Total estimado</span>
+                            <strong id="carrito-total">USD$0.00</strong>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                        <button type="button" class="btn btn-rosa-solido" id="carrito-continuar" disabled><i class="bi-bag-check me-2"></i>Continuar al pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal: realizar un pedido -->
         <div class="modal fade" id="modal-pedido" tabindex="-1" aria-labelledby="modal-pedido-titulo" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
@@ -725,32 +754,43 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                         </div>
                         <div class="modal-body">
-                            <p class="pedido-intro">Cuéntanos qué quieres y te confirmamos por WhatsApp. Quedará como <strong>pendiente</strong> hasta que lo verifiquemos.</p>
+                            <p class="pedido-intro">Completa tus datos para registrar el pedido. Quedará como <strong>pendiente</strong> hasta que lo verifiquemos.</p>
+                            <p class="small text-muted">Usaremos tu cédula y teléfono únicamente para gestionar y confirmar este pedido.</p>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label" for="p-nombre">Nombre completo *</label>
-                                    <input type="text" class="form-control" id="p-nombre" name="nombre" required maxlength="120" autocomplete="name" />
+                                    <input type="text" class="form-control" id="p-nombre" name="nombre" required maxlength="120" autocomplete="name" placeholder="Ej: María Pérez García" aria-describedby="p-nombre-ayuda" />
+                                    <small class="form-text" id="p-nombre-ayuda">Máximo 30 palabras.</small>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label" for="p-edad">Edad</label>
-                                    <input type="number" class="form-control" id="p-edad" name="edad" min="1" max="120" inputmode="numeric" />
+                                    <input type="text" class="form-control" id="p-edad" name="edad" inputmode="numeric" pattern="[0-9]{1,2}" maxlength="2" placeholder="Ej: 25" aria-describedby="p-edad-ayuda" />
+                                    <small class="form-text" id="p-edad-ayuda">De 1 a 99 años.</small>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label" for="p-sexo">Sexo</label>
-                                    <select class="form-select" id="p-sexo" name="sexo">
-                                        <option value="">Elige...</option>
+                                    <select class="form-select" id="p-sexo" name="sexo" aria-describedby="p-sexo-ayuda">
+                                        <option value="">Elige una opción</option>
                                         <option>Femenino</option>
                                         <option>Masculino</option>
                                         <option>Otro</option>
                                     </select>
+                                    <small class="form-text" id="p-sexo-ayuda">Ejemplo: Femenino.</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="p-cedula">Cédula dominicana *</label>
+                                    <input type="text" class="form-control" id="p-cedula" name="cedula" required inputmode="numeric" pattern="[0-9]{11}" minlength="11" maxlength="11" autocomplete="off" placeholder="Ej: 00113952246" aria-describedby="p-cedula-ayuda" />
+                                    <small class="form-text" id="p-cedula-ayuda">11 dígitos, sin guiones.</small>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label" for="p-telefono">Número de teléfono *</label>
-                                    <input type="tel" class="form-control" id="p-telefono" name="telefono" required maxlength="30" inputmode="tel" autocomplete="tel" placeholder="Ej: 809 000 0000" />
+                                    <input type="tel" class="form-control" id="p-telefono" name="telefono" required maxlength="10" inputmode="numeric" pattern="[0-9]{10}" autocomplete="tel" placeholder="Ej: 8095551234" aria-describedby="p-telefono-ayuda" />
+                                    <small class="form-text" id="p-telefono-ayuda">10 dígitos, sin espacios ni guiones.</small>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label" for="p-producto">¿Qué quieres? *</label>
-                                    <input type="text" class="form-control" id="p-producto" name="producto" list="lista-productos" required maxlength="200" placeholder="Ej: Taza blanca personalizada" />
+                                    <input type="text" class="form-control" id="p-producto" name="producto" list="lista-productos" required maxlength="200" placeholder="Ej: Taza personalizada x 2" aria-describedby="p-producto-ayuda" />
+                                    <small class="form-text" id="p-producto-ayuda">El resumen del carrito se completa automáticamente.</small>
                                     <datalist id="lista-productos">
                                         <option value="Taza blanca personalizada"></option>
                                         <option value="Taza con mango de corazón"></option>
@@ -770,18 +810,23 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label" for="p-precio">Precio (USD$)</label>
-                                    <input type="number" class="form-control" id="p-precio" name="precio" min="0" step="0.01" inputmode="decimal" placeholder="Si no lo sabes, lo confirmamos" />
+                                    <input type="number" class="form-control" id="p-precio" name="precio" min="0" max="999999.99" step="0.01" inputmode="decimal" placeholder="Ej: 7.00 (opcional)" aria-describedby="p-precio-ayuda" />
+                                    <small class="form-text" id="p-precio-ayuda">El total del carrito se calcula automáticamente.</small>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label" for="p-notas">Detalles / personalización</label>
-                                    <textarea class="form-control" id="p-notas" name="notas" rows="3" maxlength="500" placeholder="Foto, frase, color, talla, cantidad..."></textarea>
+                                    <textarea class="form-control" id="p-notas" name="notas" rows="3" maxlength="500" placeholder="Ej: Nombre, frase, color, talla o diseño..." aria-describedby="p-notas-ayuda"></textarea>
+                                    <small class="form-text" id="p-notas-ayuda">Máximo 500 caracteres.</small>
                                 </div>
                             </div>
                             <div class="alert alert-danger mt-3 mb-0 d-none" id="pedido-error" role="alert"></div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <div class="modal-footer pedido-acciones" id="pedido-acciones">
+                            <button type="button" class="btn btn-outline-secondary" id="pedido-cancelar"><i class="bi-x-circle me-2"></i>Cancelar pedido</button>
                             <button type="submit" class="btn btn-rosa-solido" id="pedido-enviar"><i class="bi-send me-2"></i>Enviar pedido</button>
+                        </div>
+                        <div class="modal-footer pedido-enviando d-none" id="pedido-enviando" role="status" aria-live="polite">
+                            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Enviando pedido...
                         </div>
                     </form>
 
@@ -792,9 +837,8 @@
                             <p class="mb-2">Guárdalo con este código de compra:</p>
                             <div class="pedido-codigo" id="pedido-codigo">DP-XXXXXX</div>
                             <p class="estado-pendiente"><i class="bi-hourglass-split me-1"></i> Estado: <strong>Pendiente</strong> de confirmación</p>
-                            <p class="small text-muted mb-3">Tu pedido ya nos llegó por WhatsApp. Si quieres, envíanos el detalle tú mismo para confirmarlo más rápido.</p>
-                            <a href="#" id="pedido-wa" class="btn btn-whatsapp w-100" target="_blank" rel="noopener"><i class="bi-whatsapp me-2"></i>Enviar también por WhatsApp</a>
-                            <button type="button" class="btn btn-link mt-2" data-bs-dismiss="modal">Cerrar</button>
+                            <p class="small text-muted mb-3">Tu pedido quedó registrado y está pendiente de confirmación.</p>
+                            <button type="button" class="btn btn-outline-secondary mt-2" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
@@ -816,6 +860,3 @@
         <script src="js/pedidos.js"></script>
     </body>
 </html>
-
-
-

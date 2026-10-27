@@ -1,4 +1,4 @@
-/* Chat de atención de Darlin Personalizados.
+/* Chat de atención - Estampado Darlin.
    - Al abrir, el cliente elige: hacer un pedido o hacer una pregunta.
    - Modo pedido: 3 preguntas y arma el resumen para WhatsApp.
    - Modo pregunta: la IA responde CUALQUIER pregunta.
@@ -195,7 +195,7 @@
 
     function preguntarInicio() {
         paso = 'menu';
-        msgBot('¡Hola! Soy el asistente de <strong>Darlin Personalizados</strong>.<br><br>¿En qué te puedo ayudar? Toca un botón o escríbeme lo que necesites.', function () {
+        msgBot('¡Hola! Soy el asistente de <strong>Estampado Darlin</strong>.<br><br>¿En qué te puedo ayudar? Toca un botón o escríbeme lo que necesites.', function () {
             opciones(OPS_PRINCIPAL);
         });
     }

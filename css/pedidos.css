@@ -1,5 +1,5 @@
 /* ============================================================
-   Solicitud de pedidos - Darlin Personalizados
+   Solicitud de pedidos - Estampado Darlin
    ============================================================ */
 
 /* Botón del menú que abre el modal (hereda el estilo de .nav-link) */
@@ -15,7 +15,7 @@
     border: none;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 24px 60px rgba(45, 42, 50, 0.28);
+    box-shadow: 0 24px 60px rgba(17, 24, 39, 0.28);
 }
 
 .pedido-modal .modal-header {
@@ -35,11 +35,24 @@
 
 .pedido-modal .modal-body {
     padding: 1.6rem;
+    overscroll-behavior: contain;
 }
 
 .pedido-modal .modal-footer {
-    border-top: 1px solid rgba(45, 42, 50, 0.08);
+    border-top: 1px solid rgba(17, 24, 39, 0.08);
     padding: 1rem 1.6rem;
+}
+
+.pedido-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+.pedido-enviando {
+    justify-content: center;
+    color: var(--rosa-oscuro);
+    font-weight: 600;
 }
 
 .pedido-intro {
@@ -56,7 +69,7 @@
 
 .pedido-modal .form-control,
 .pedido-modal .form-select {
-    border: 1.5px solid rgba(45, 42, 50, 0.15);
+    border: 1.5px solid rgba(17, 24, 39, 0.15);
     border-radius: 10px;
     padding: 0.6rem 0.9rem;
     font-family: 'Poppins', system-ui, sans-serif;
@@ -67,7 +80,18 @@
 .pedido-modal .form-control:focus,
 .pedido-modal .form-select:focus {
     border-color: var(--rosa);
-    box-shadow: 0 0 0 0.2rem rgba(216, 27, 96, 0.15);
+    box-shadow: 0 0 0 0.2rem rgba(23, 105, 170, 0.15);
+}
+
+.pedido-modal .form-text {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--gris-texto);
+    font-size: 0.78rem;
+}
+
+.pedido-modal .form-control[readonly] {
+    background-color: #f3f7fb;
 }
 
 /* --------------------------- ÉXITO --------------------------- */
@@ -81,8 +105,8 @@
     border-radius: 50%;
     font-size: 2rem;
     color: #fff;
-    background: linear-gradient(135deg, #25d366, #1ebd56);
-    box-shadow: 0 12px 26px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, var(--rosa), var(--rosa-oscuro));
+    box-shadow: 0 12px 26px rgba(23, 105, 170, 0.3);
 }
 
 .pedido-codigo {
@@ -104,5 +128,15 @@
 }
 
 .estado-pendiente strong {
-    color: #b8860b;
+    color: var(--rosa-oscuro);
+}
+
+@media (max-width: 575.98px) {
+    .pedido-acciones {
+        flex-direction: column-reverse;
+    }
+
+    .pedido-acciones .btn {
+        width: 100%;
+    }
 }

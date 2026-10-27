@@ -1,6 +1,16 @@
 # El Worker contiene claves privadas: NO se sube a GitHub.
 cloudflare-worker/
 
+# Credenciales locales y claves privadas: nunca subir a GitHub.
+.env
+.env.*
+!.env.example
+.dev.vars
+*.pem
+*.key
+*.p12
+*.pfx
+
 # Respaldos y archivos temporales
 *.bak
 *.tmp

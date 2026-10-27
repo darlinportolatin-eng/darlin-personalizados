@@ -66,7 +66,13 @@
 
     modal.addEventListener('show.bs.modal', function (evento) {
         var disparador = evento.relatedTarget;
+        var desdeCarrito = modal.dataset.desdeCarrito === 'true';
+        delete modal.dataset.desdeCarrito;
         ocultarError();
+        if (!desdeCarrito && campos.producto.readOnly) {
+            campos.producto.value = '';
+            campos.producto.readOnly = false;
+        }
         if (disparador && disparador.dataset) rellenarProducto(disparador.dataset);
     });
 
@@ -79,6 +85,7 @@
 
     modal.addEventListener('hidden.bs.modal', function () {
         if (!exito.classList.contains('d-none')) formulario.reset();
+        campos.producto.readOnly = false;
         formulario.classList.remove('d-none');
         exito.classList.add('d-none');
         mostrarEstadoEnviando(false);
@@ -137,8 +144,8 @@
             campos.telefono.focus();
             return;
         }
-        if (!producto || producto.length > 200) {
-            mostrarError('Indica el producto (máximo 200 caracteres).');
+        if (!producto || producto.length > 1000) {
+            mostrarError('Indica el producto (máximo 1000 caracteres).');
             campos.producto.focus();
             return;
         }

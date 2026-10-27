@@ -197,10 +197,14 @@ document.addEventListener('DOMContentLoaded', function () {
             var productoEl = document.getElementById('p-producto');
             var precioEl = document.getElementById('p-precio');
             var resumen = carrito.map(function (item) {
-                return item.foto + 'x' + item.cantidad;
-            }).join(',');
-            if (productoEl) productoEl.value = 'Fotos ' + resumen;
+                return item.nombre + ' (foto ' + item.foto + ') x ' + item.cantidad;
+            }).join('; ');
+            if (productoEl) {
+                productoEl.value = resumen;
+                productoEl.readOnly = true;
+            }
             if (precioEl) precioEl.value = totalCarrito().toFixed(2);
+            pedidoModalEl.dataset.desdeCarrito = 'true';
             abrirPedidoAlCerrarCarrito = true;
             window.bootstrap.Modal.getOrCreateInstance(carritoModalEl).hide();
         });

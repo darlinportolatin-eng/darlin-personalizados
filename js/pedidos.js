@@ -100,7 +100,8 @@
         ocultarError();
 
         var nombre = campos.nombre.value.trim();
-        var cedula = campos.cedula.value.replace(/\D/g, '');
+        var cedulaEntrada = campos.cedula.value.trim();
+        var cedula = cedulaEntrada.replace(/[\s-]/g, '');
         var telefono = campos.telefono.value.replace(/\D/g, '');
         var edad = campos.edad.value.trim();
         var producto = campos.producto.value.trim();
@@ -116,14 +117,19 @@
             campos.nombre.focus();
             return;
         }
-        if (!validarCedula(cedula)) {
-            mostrarError('La cédula debe tener 11 dígitos y su número de verificación debe ser válido.');
+        if (cedulaEntrada && !validarCedula(cedula)) {
+            mostrarError('Si escribes la cédula, debe tener 11 dígitos y su número de verificación debe ser válido.');
             campos.cedula.focus();
             return;
         }
-        if (edad && (!/^\d{1,2}$/.test(edad) || Number(edad) < 1 || Number(edad) > 99)) {
+        if (!/^\d{1,2}$/.test(edad) || Number(edad) < 1 || Number(edad) > 99) {
             mostrarError('La edad debe estar entre 1 y 99 años y tener máximo dos dígitos.');
             campos.edad.focus();
+            return;
+        }
+        if (!campos.sexo.value) {
+            mostrarError('Selecciona una opción para el sexo.');
+            campos.sexo.focus();
             return;
         }
         if (!/^\d{10}$/.test(telefono)) {
@@ -136,13 +142,13 @@
             campos.producto.focus();
             return;
         }
-        if (precio && (!Number.isFinite(Number(precio)) || Number(precio) < 0 || Number(precio) > 999999.99)) {
+        if (!precio || !Number.isFinite(Number(precio)) || Number(precio) < 0 || Number(precio) > 999999.99) {
             mostrarError('El precio debe ser un monto válido.');
             campos.precio.focus();
             return;
         }
-        if (notas.length > 500) {
-            mostrarError('Los detalles no pueden exceder 500 caracteres.');
+        if (!notas || notas.length > 500) {
+            mostrarError('Escribe los detalles de personalización (máximo 500 caracteres).');
             campos.notas.focus();
             return;
         }

@@ -755,7 +755,7 @@
                         </div>
                         <div class="modal-body">
                             <p class="pedido-intro">Completa tus datos para registrar el pedido. Quedará como <strong>pendiente</strong> hasta que lo verifiquemos.</p>
-                            <p class="small text-muted">Usaremos tu cédula y teléfono únicamente para gestionar y confirmar este pedido.</p>
+                            <p class="small text-muted">Todos los campos son obligatorios excepto la cédula. Usaremos tus datos únicamente para gestionar y confirmar este pedido.</p>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label" for="p-nombre">Nombre completo *</label>
@@ -763,13 +763,13 @@
                                     <small class="form-text" id="p-nombre-ayuda">Máximo 30 palabras.</small>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class="form-label" for="p-edad">Edad</label>
-                                    <input type="text" class="form-control" id="p-edad" name="edad" inputmode="numeric" pattern="[0-9]{1,2}" maxlength="2" placeholder="Ej: 25" aria-describedby="p-edad-ayuda" />
+                                    <label class="form-label" for="p-edad">Edad *</label>
+                                    <input type="text" class="form-control" id="p-edad" name="edad" required inputmode="numeric" pattern="[0-9]{1,2}" maxlength="2" placeholder="Ej: 25" aria-describedby="p-edad-ayuda" />
                                     <small class="form-text" id="p-edad-ayuda">De 1 a 99 años.</small>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class="form-label" for="p-sexo">Sexo</label>
-                                    <select class="form-select" id="p-sexo" name="sexo" aria-describedby="p-sexo-ayuda">
+                                    <label class="form-label" for="p-sexo">Sexo *</label>
+                                    <select class="form-select" id="p-sexo" name="sexo" required aria-describedby="p-sexo-ayuda">
                                         <option value="">Elige una opción</option>
                                         <option>Femenino</option>
                                         <option>Masculino</option>
@@ -778,9 +778,9 @@
                                     <small class="form-text" id="p-sexo-ayuda">Ejemplo: Femenino.</small>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="p-cedula">Cédula dominicana *</label>
-                                    <input type="text" class="form-control" id="p-cedula" name="cedula" required inputmode="numeric" maxlength="20" autocomplete="off" placeholder="Ej: 001-1395224-6" aria-describedby="p-cedula-ayuda" />
-                                    <small class="form-text" id="p-cedula-ayuda">Escribe 11 dígitos, con o sin guiones.</small>
+                                    <label class="form-label" for="p-cedula">Cédula dominicana (opcional)</label>
+                                    <input type="text" class="form-control" id="p-cedula" name="cedula" inputmode="numeric" maxlength="20" autocomplete="off" placeholder="Ej: 001-1395224-6" aria-describedby="p-cedula-ayuda" />
+                                    <small class="form-text" id="p-cedula-ayuda">Si la escribes, debe tener 11 dígitos, con o sin guiones.</small>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label" for="p-telefono">Número de teléfono *</label>
@@ -809,13 +809,13 @@
                                     </datalist>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="p-precio">Precio (USD$)</label>
-                                    <input type="number" class="form-control" id="p-precio" name="precio" min="0" max="999999.99" step="0.01" inputmode="decimal" placeholder="Ej: 7.00 (opcional)" aria-describedby="p-precio-ayuda" />
+                                    <label class="form-label" for="p-precio">Precio (USD$) *</label>
+                                    <input type="number" class="form-control" id="p-precio" name="precio" required min="0" max="999999.99" step="0.01" inputmode="decimal" placeholder="Ej: 7.00" aria-describedby="p-precio-ayuda" />
                                     <small class="form-text" id="p-precio-ayuda">El total del carrito se calcula automáticamente.</small>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label" for="p-notas">Detalles / personalización</label>
-                                    <textarea class="form-control" id="p-notas" name="notas" rows="3" maxlength="500" placeholder="Ej: Nombre, frase, color, talla o diseño..." aria-describedby="p-notas-ayuda"></textarea>
+                                    <label class="form-label" for="p-notas">Detalles / personalización *</label>
+                                    <textarea class="form-control" id="p-notas" name="notas" required rows="3" maxlength="500" placeholder="Ej: Nombre, frase, color, talla o diseño..." aria-describedby="p-notas-ayuda"></textarea>
                                     <small class="form-text" id="p-notas-ayuda">Máximo 500 caracteres.</small>
                                 </div>
                             </div>

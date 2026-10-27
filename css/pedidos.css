@@ -18,6 +18,14 @@
     box-shadow: 0 24px 60px rgba(17, 24, 39, 0.28);
 }
 
+.pedido-modal > #form-pedido {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
 .pedido-modal .modal-header {
     color: #fff;
     background: linear-gradient(135deg, var(--rosa-oscuro), var(--rosa));
@@ -34,8 +42,13 @@
 }
 
 .pedido-modal .modal-body {
+    flex: 1 1 auto;
+    min-height: 0;
     padding: 1.6rem;
+    overflow-y: auto;
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
 }
 
 .pedido-modal .modal-footer {

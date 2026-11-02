@@ -1,5 +1,5 @@
 @echo off
-title Publicar cambios - Estampado Darlin
+title Publicar cambios - Persova
 cd /d "%~dp0"
 
 echo ============================================

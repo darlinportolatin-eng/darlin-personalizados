@@ -1,4 +1,4 @@
-/* Solicitud de pedidos - Estampado Darlin. */
+/* Solicitud de pedidos - Persova. */
 (function () {
     'use strict';
 

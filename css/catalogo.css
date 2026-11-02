@@ -1,5 +1,5 @@
 ﻿/* ============================================================
-   Estampado Darlin - Estilos del catálogo
+   Persova - Estilos del catálogo
    Paleta: azul + blanco + negro
    ============================================================ */
 
@@ -199,14 +199,29 @@ header.masthead {
     padding-bottom: 3.5rem;
     text-align: center;
     color: var(--blanco);
-    /* Velo oscuro doble: el texto se lee sobre cualquier zona de la foto */
-    background:
-        linear-gradient(rgba(8, 20, 36, 0.62), rgba(8, 20, 36, 0.62)),
-        linear-gradient(135deg, rgba(11, 53, 88, 0.92) 0%, rgba(23, 105, 170, 0.82) 55%, rgba(16, 74, 124, 0.78) 100%),
-        url("../assets/img/bg-masthead.jpg");
+    background: linear-gradient(135deg, #0b3558 0%, #1769aa 58%, #104a7c 100%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+header.masthead::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: url("../assets/img/bg-masthead.jpg") center / min(78%, 860px) auto no-repeat;
+    mix-blend-mode: screen;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+header.masthead > .container {
+    position: relative;
+    z-index: 1;
+}
+
+header.masthead > .hero-scroll {
+    z-index: 1;
 }
 
 header.masthead .hero-kicker {

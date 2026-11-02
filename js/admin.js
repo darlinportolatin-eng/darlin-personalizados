@@ -1,4 +1,4 @@
-/* Panel de pedidos - Estampado Darlin.
+/* Panel de pedidos - Persova.
    Muestra los pedidos guardados en la base de datos (D1) y permite
    cambiar su estado entre "pendiente" y "realizado". */
 (function () {
@@ -113,7 +113,7 @@
         var wa = document.createElement('a');
         wa.className = 'btn btn-whatsapp btn-sm';
         wa.href = 'https://wa.me/' + numero(p.telefono) + '?text=' +
-            encodeURIComponent('Hola ' + p.nombre + ', sobre tu pedido ' + p.codigo + ' de Estampado Darlin:');
+            encodeURIComponent('Hola ' + p.nombre + ', sobre tu pedido ' + p.codigo + ' de Persova:');
         wa.target = '_blank';
         wa.rel = 'noopener';
         wa.innerHTML = '<i class="bi-whatsapp me-1"></i>WhatsApp';

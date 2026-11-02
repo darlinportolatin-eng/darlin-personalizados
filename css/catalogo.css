@@ -603,7 +603,8 @@ html.js .producto.mostrar {
     display: block;
     width: 100%;
     height: 230px;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 0.5rem;
     transition: transform 0.4s ease;
 }
 

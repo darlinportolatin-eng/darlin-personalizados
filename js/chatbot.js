@@ -41,7 +41,7 @@
 
     var FAQS = [
         { patron: /(^|\s)(hola|buenas|hey|qué tal|que tal|saludos)(\s|$)/i, texto: '¡Hola! Puedo armar tu pedido o responder tus dudas. ¿Qué necesitas?' },
-        { patron: /precio|cuesta|costo|cu[aá]nto|tarifa/i, texto: 'Los precios están en el catálogo: van desde USD$2 (pegatinas) hasta USD$23 (termos). ¿Qué producto te interesa?' },
+        { patron: /precio|cuesta|costo|cu[aá]nto|tarifa/i, texto: 'Los precios están en el catálogo: van desde RD$150 (pegatinas) hasta RD$1,300 (termos). ¿Qué producto te interesa?' },
         { patron: /env[ií]o|entrega|domicilio/i, texto: 'La entrega la coordinamos por WhatsApp según tu zona, así te confirmamos disponibilidad y tiempo.' },
         { patron: /pago|pagar|transferencia|efectivo/i, texto: 'El método de pago se confirma por WhatsApp cuando cerramos el pedido.' },
         { patron: /horario|abren|abierto|a qué hora/i, texto: 'Escríbenos por WhatsApp y te respondemos lo antes posible.' },

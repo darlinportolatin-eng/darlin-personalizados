@@ -88,7 +88,7 @@
         if (p.sexo) datos.push('Sexo: ' + esc(p.sexo));
         if (p.cedula_ultimos4) datos.push('Cédula terminada en: ' + esc(p.cedula_ultimos4));
         if (p.precio !== null && p.precio !== undefined && p.precio !== '') {
-            datos.push('Precio: USD$' + esc(p.precio));
+            datos.push('Precio: RD$' + esc(Number(p.precio).toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })));
         }
         if (p.creado_en) datos.push('Fecha: ' + esc(p.creado_en));
 

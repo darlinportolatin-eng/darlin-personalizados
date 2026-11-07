@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var total = totalCarrito();
 
         if (carritoCantidadEl) carritoCantidadEl.textContent = cantidad;
-        if (carritoTotalEl) carritoTotalEl.textContent = 'USD$' + total.toFixed(2);
+        if (carritoTotalEl) carritoTotalEl.textContent = 'RD$' + total.toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         if (carritoVacioEl) carritoVacioEl.hidden = carrito.length > 0;
         if (continuarEl) continuarEl.disabled = carrito.length === 0;
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var titulo = document.createElement('strong');
             titulo.textContent = item.nombre + ' (Foto ' + item.foto + ')';
             var precio = document.createElement('span');
-            precio.textContent = 'USD$' + item.precio.toFixed(2) + ' c/u';
+            precio.textContent = 'RD$' + item.precio.toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' c/u';
             info.appendChild(titulo);
             info.appendChild(precio);
             fila.appendChild(info);
@@ -213,8 +213,8 @@ document.addEventListener('DOMContentLoaded', function () {
     window.resumenCarritoWhatsApp = function () {
         return carrito.map(function (item) {
             return '- ' + item.nombre + ' (foto ' + item.foto + '): ' + item.cantidad +
-                ' x USD$' + item.precio.toFixed(2) + ' = USD$' +
-                (item.cantidad * item.precio).toFixed(2);
+                ' x RD$' + item.precio.toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' = RD$' +
+                (item.cantidad * item.precio).toLocaleString('es-DO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         });
     };
 

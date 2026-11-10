@@ -194,6 +194,7 @@ header.masthead {
     position: relative;
     display: flex;
     align-items: center;
+    overflow-x: clip;
     min-height: calc(100vh - 5rem);
     padding-top: 5.5rem;
     padding-bottom: 3.5rem;
@@ -213,6 +214,51 @@ header.masthead::before {
     mix-blend-mode: screen;
     opacity: 0.45;
     pointer-events: none;
+}
+
+header.masthead::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background:
+        radial-gradient(ellipse at 18% 28%, rgba(108, 198, 255, 0.3), transparent 34%),
+        radial-gradient(ellipse at 82% 72%, rgba(255, 255, 255, 0.2), transparent 32%);
+    background-size: 150% 150%;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    header.masthead::before {
+        animation: imagen-principal-respirar 12s ease-in-out infinite alternate;
+    }
+
+    header.masthead::after {
+        animation: luces-principales-mover 9s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes imagen-principal-respirar {
+    from {
+        opacity: 0.35;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0.55;
+        transform: scale(1.07);
+    }
+}
+
+@keyframes luces-principales-mover {
+    from {
+        background-position: 0% 50%;
+        opacity: 0.45;
+    }
+
+    to {
+        background-position: 100% 50%;
+        opacity: 0.9;
+    }
 }
 
 header.masthead > .container {
@@ -282,6 +328,33 @@ header.masthead .hero-sub {
     header.masthead .hero-producto:nth-child(3) {
         animation-delay: 420ms;
     }
+
+    header.masthead .hero-kicker {
+        animation-name: hero-entrada, kicker-brillo;
+        animation-duration: 0.75s, 3s;
+        animation-delay: 0s, 1s;
+        animation-timing-function: cubic-bezier(0.2, 0.7, 0.25, 1), ease-in-out;
+        animation-iteration-count: 1, infinite;
+    }
+
+    header.masthead .hero-producto {
+        animation-name: hero-entrada, tarjeta-flotante;
+        animation-duration: 0.75s, 5s;
+        animation-timing-function: cubic-bezier(0.2, 0.7, 0.25, 1), ease-in-out;
+        animation-iteration-count: 1, infinite;
+    }
+
+    header.masthead .hero-producto:nth-child(1) {
+        animation-delay: 260ms, 1s;
+    }
+
+    header.masthead .hero-producto:nth-child(2) {
+        animation-delay: 340ms, 1.4s;
+    }
+
+    header.masthead .hero-producto:nth-child(3) {
+        animation-delay: 420ms, 1.8s;
+    }
 }
 
 @keyframes hero-entrada {
@@ -293,6 +366,28 @@ header.masthead .hero-sub {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes kicker-brillo {
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 22px rgba(255, 255, 255, 0.45);
+    }
+}
+
+@keyframes tarjeta-flotante {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
     }
 }
 
@@ -313,6 +408,47 @@ header.masthead .hero-sub {
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.12);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.hero-producto::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.35) 48%, transparent 76%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-producto::after {
+        animation: destello-tarjeta 5.5s ease-in-out infinite;
+    }
+
+    .hero-producto:nth-child(2)::after {
+        animation-delay: 1.1s;
+    }
+
+    .hero-producto:nth-child(3)::after {
+        animation-delay: 2.2s;
+    }
+}
+
+@keyframes destello-tarjeta {
+    0%,
+    55%,
+    100% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
 }
 
 .hero-producto img {

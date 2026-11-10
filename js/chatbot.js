@@ -27,7 +27,6 @@
     var datos = { producto: '', idea: '', cantidad: '' };
     var historialIA = [];
 
-    var OPS_PRINCIPAL = ['Quiero hacer un pedido', 'Tengo una pregunta'];
     var OPS_PRODUCTO = ['Taza', 'Termo', 'Vaso', 'Camiseta', 'Gorra', 'Llavero', 'Otro', 'Tengo una pregunta'];
     var OPS_IDEA = ['Una foto', 'Un nombre o frase', 'Un diseño que ya tengo', 'Necesito ideas', 'Tengo una pregunta'];
     var OPS_CANTIDAD = ['1', '2 a 5', '6 o más', 'Tengo una pregunta'];
@@ -209,23 +208,21 @@
     /* --------------------------- FLUJO --------------------------- */
 
     function preguntarInicio() {
-        paso = 'menu';
-        msgBot('¡Hola! Soy el asistente de <strong>Persova</strong>.<br><br>¿En qué te puedo ayudar? Toca un botón o escríbeme lo que necesites.', function () {
-            opciones(OPS_PRINCIPAL);
+        paso = 'inicio';
+        msgBot('¡Hola! Soy el asistente de <strong>Persova</strong>. Vamos a preparar tu pedido.<br><br>¿Qué producto quieres personalizar?', function () {
+            opciones(OPS_PRODUCTO);
         });
     }
 
     function preguntarProducto() {
         paso = 'inicio';
-        msgBot('¡Perfecto! Respondes 3 preguntitas y tu pedido llega listo al WhatsApp.<br><br>¿Qué te gustaría personalizar?', function () {
+        msgBot('¡Perfecto! Vamos a armar tu pedido ahora. ¿Qué producto quieres personalizar?', function () {
             opciones(OPS_PRODUCTO);
         });
     }
 
     function repetirPaso() {
-        if (paso === 'menu') {
-            opciones(OPS_PRINCIPAL);
-        } else if (paso === 'inicio') {
+        if (paso === 'inicio') {
             opciones(OPS_PRODUCTO);
         } else if (paso === 'idea') {
             opciones(OPS_IDEA);
@@ -273,12 +270,6 @@
         if (!IA_ACTIVA && pareceConsulta(limpio)) {
             var faq = buscarFaq(limpio);
             msgBot(faq || 'Aún no tengo esa respuesta. Escríbenos al WhatsApp y te la damos.', repetirPaso);
-            return;
-        }
-
-        if (paso === 'menu') {
-            var faqMenu = buscarFaq(limpio);
-            msgBot(faqMenu || 'Puedo armar tu pedido o resolver tus dudas. ¿Qué prefieres?', repetirPaso);
             return;
         }
 

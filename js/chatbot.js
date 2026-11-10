@@ -1,17 +1,12 @@
 /* Chat de atención - Persova.
    - Al abrir, el cliente elige: hacer un pedido o hacer una pregunta.
    - Modo pedido: 3 preguntas y arma el resumen para WhatsApp.
-   - Modo pregunta: la IA responde CUALQUIER pregunta.
-   Para activar la IA, pega abajo la URL del Worker de Cloudflare. */
+   - Modo pregunta: responde consultas generales con ayuda de la IA del Worker. */
 (function () {
     'use strict';
 
     var TELEFONO = '18492151857';
 
-    /* ------------------------------------------------------------------
-       IA (opcional). Si queda vacío, el chat funciona igual pero responde
-       solo las preguntas frecuentes básicas.
-       ------------------------------------------------------------------ */
     var IA_URL = 'https://darlin-bot.darlinportolatin.workers.dev';
     var IA_ACTIVA = /^https?:\/\//i.test(IA_URL.trim());
 
@@ -137,25 +132,37 @@
         return t;
     }
 
-    function consultarIA(texto, alResponder) {
-        historialIA.push({ role: 'user', text: texto });
+    function consultarIA(texto, alResponder, alFallar) {
         var indicador = mostrarEscribiendo();
 
         window.fetch(IA_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ messages: historialIA })
+            body: JSON.stringify({
+                messages: historialIA.concat([{ role: 'user', text: texto }])
+            })
         })
-            .then(function (r) { return r.json(); })
+            .then(function (r) {
+                return r.json().then(function (d) {
+                    if (!r.ok) {
+                        throw new Error('El asistente no está disponible en este momento.');
+                    }
+                    return d;
+                });
+            })
             .then(function (d) {
                 var respuesta = (d && (d.reply || d.response)) || '';
                 if (indicador.parentNode) {
                     indicador.parentNode.removeChild(indicador);
                 }
-                if (!respuesta) {
-                    respuesta = 'No pude responder eso. Escríbenos al WhatsApp y te ayudamos.';
+                if (!respuesta || /configurar la clave de ia/i.test(String(respuesta))) {
+                    throw new Error('El asistente no pudo generar una respuesta.');
                 }
+                historialIA.push({ role: 'user', text: texto });
                 historialIA.push({ role: 'model', text: respuesta });
+                if (historialIA.length > 12) {
+                    historialIA.splice(0, historialIA.length - 12);
+                }
                 if (alResponder) {
                     alResponder(respuesta);
                 } else {
@@ -166,7 +173,11 @@
                 if (indicador.parentNode) {
                     indicador.parentNode.removeChild(indicador);
                 }
-                burbujaBot('No pude conectarme en este momento. Escríbenos al WhatsApp y te ayudamos.');
+                if (alFallar) {
+                    alFallar();
+                    return;
+                }
+                burbujaBot('No pude responder en este momento. Escríbenos por WhatsApp y te ayudamos.');
             });
     }
 
@@ -181,6 +192,10 @@
         if (IA_ACTIVA) {
             consultarIA(texto, function (respuesta) {
                 burbujaBot(esc(respuesta));
+                opciones(OPS_DUDA);
+            }, function () {
+                var faq = buscarFaq(texto);
+                burbujaBot(esc(faq || 'No pude responder en este momento. Escríbenos por WhatsApp y te ayudamos.'));
                 opciones(OPS_DUDA);
             });
             return;
@@ -246,6 +261,10 @@
         if (!esChip && IA_ACTIVA && paso !== 'producto-otro') {
             consultarIA(limpio, function (respuesta) {
                 burbujaBot(esc(respuesta));
+                repetirPaso();
+            }, function () {
+                var faq = buscarFaq(limpio);
+                burbujaBot(esc(faq || 'No pude responder en este momento. Escríbenos por WhatsApp y te ayudamos.'));
                 repetirPaso();
             });
             return;

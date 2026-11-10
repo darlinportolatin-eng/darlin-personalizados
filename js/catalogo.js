@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var msgVacio = document.getElementById('msg-vacio');
     var seccionFilosofia = document.getElementById('filosofia');
     var enlacesFilosofia = document.querySelectorAll('a[href="#filosofia"]');
+    var detalleProductoEl = document.getElementById('producto-detalle');
+    var detalleContenidoEl = document.getElementById('producto-detalle-contenido');
+    var tituloRelacionadosEl = document.getElementById('titulo-relacionados');
+    var textoRelacionadosEl = document.getElementById('texto-relacionados');
+    var volverCatalogoEl = document.getElementById('volver-catalogo');
     var carritoModalEl = document.getElementById('modal-carrito');
     var carritoItemsEl = document.getElementById('carrito-items');
     var carritoVacioEl = document.getElementById('carrito-vacio');
@@ -19,12 +24,28 @@ document.addEventListener('DOMContentLoaded', function () {
     var pedidoModalEl = document.getElementById('modal-pedido');
     var carrito = [];
     var abrirPedidoAlCerrarCarrito = false;
+    var productoSeleccionado = null;
+
+    function actualizarFiltroActivo(filtro) {
+        botones.forEach(function (boton) {
+            var activo = boton.dataset.filtro === filtro;
+            boton.classList.toggle('active', activo);
+            boton.setAttribute('aria-pressed', activo ? 'true' : 'false');
+        });
+    }
+
+    function cerrarDetalle() {
+        productoSeleccionado = null;
+        if (detalleProductoEl) detalleProductoEl.hidden = true;
+        if (tituloRelacionadosEl) tituloRelacionadosEl.hidden = true;
+    }
 
     function aplicarFiltro(filtro) {
         var visibles = 0;
 
         productos.forEach(function (producto) {
-            var coincide = filtro === 'todos' || producto.dataset.categoria === filtro;
+            var coincide = (filtro === 'todos' || producto.dataset.categoria === filtro) &&
+                producto !== productoSeleccionado;
             producto.classList.toggle('mostrar', coincide);
             if (coincide) visibles++;
         });
@@ -39,17 +60,69 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function abrirDetalle(producto) {
+        var tarjeta = producto.querySelector('.product-card');
+        var imagenOriginal = tarjeta.querySelector('.product-img');
+        var tituloOriginal = tarjeta.querySelector('h3');
+        var descripcionOriginal = tarjeta.querySelector('.card-body p');
+        var categoriaOriginal = tarjeta.querySelector('.badge-category');
+        var precioOriginal = tarjeta.querySelector('.product-price');
+        var imagen = document.createElement('img');
+        var informacion = document.createElement('div');
+        var categoria = document.createElement('span');
+        var titulo = document.createElement('h3');
+        var descripcion = document.createElement('p');
+        var precio = document.createElement('p');
+        var botonAgregar = document.createElement('button');
+
+        productoSeleccionado = producto;
+        imagen.className = 'producto-detalle-imagen';
+        imagen.src = imagenOriginal.src;
+        imagen.alt = imagenOriginal.alt;
+        imagen.loading = 'eager';
+        informacion.className = 'producto-detalle-informacion';
+        categoria.className = 'badge-category';
+        categoria.textContent = categoriaOriginal.textContent;
+        titulo.className = 'producto-detalle-titulo';
+        titulo.textContent = tituloOriginal.textContent;
+        descripcion.className = 'producto-detalle-descripcion';
+        descripcion.textContent = descripcionOriginal.textContent;
+        precio.className = 'producto-detalle-precio';
+        precio.textContent = precioOriginal.textContent.trim();
+        botonAgregar.type = 'button';
+        botonAgregar.className = 'btn btn-detalle-agregar';
+        botonAgregar.innerHTML = '<i class="bi-cart-plus me-2" aria-hidden="true"></i>Agregar al carrito';
+        botonAgregar.addEventListener('click', function () {
+            tarjeta.querySelector('.btn-agregar-carrito').click();
+        });
+
+        informacion.replaceChildren(categoria, titulo, descripcion, precio, botonAgregar);
+        detalleContenidoEl.replaceChildren(imagen, informacion);
+        detalleProductoEl.hidden = false;
+        tituloRelacionadosEl.hidden = false;
+        textoRelacionadosEl.textContent = 'Otros productos de ' + categoria.textContent + '.';
+        actualizarFiltroActivo(producto.dataset.categoria);
+        aplicarFiltro(producto.dataset.categoria);
+
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        detalleProductoEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+
     botones.forEach(function (boton) {
         boton.addEventListener('click', function () {
-            botones.forEach(function (otro) {
-                otro.classList.remove('active');
-                otro.setAttribute('aria-pressed', 'false');
-            });
-            boton.classList.add('active');
-            boton.setAttribute('aria-pressed', 'true');
+            cerrarDetalle();
+            actualizarFiltroActivo(boton.dataset.filtro);
             aplicarFiltro(boton.dataset.filtro);
         });
     });
+
+    if (volverCatalogoEl) {
+        volverCatalogoEl.addEventListener('click', function () {
+            cerrarDetalle();
+            actualizarFiltroActivo('todos');
+            aplicarFiltro('todos');
+        });
+    }
 
     aplicarFiltro('todos');
 
@@ -178,6 +251,20 @@ document.addEventListener('DOMContentLoaded', function () {
         enlace.addEventListener('click', function (evento) {
             evento.preventDefault();
             agregarProducto(producto);
+        });
+
+        var botonDetalle = document.createElement('button');
+        botonDetalle.type = 'button';
+        botonDetalle.className = 'btn btn-ver-producto';
+        botonDetalle.innerHTML = '<i class="bi-search me-2" aria-hidden="true"></i>Ver detalles y relacionados';
+        botonDetalle.addEventListener('click', function () {
+            abrirDetalle(enlace.closest('.producto'));
+        });
+        enlace.parentNode.appendChild(botonDetalle);
+
+        tarjeta.addEventListener('click', function (evento) {
+            if (evento.target.closest('a, button')) return;
+            abrirDetalle(enlace.closest('.producto'));
         });
     });
 

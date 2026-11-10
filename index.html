@@ -169,7 +169,7 @@
                     <div class="section-kicker mb-2">Elige el tuyo</div>
                     <h2 class="section-title mt-0">Nuestro Catálogo</h2>
                     <hr class="divider-oro" />
-                    <p>Explora todos los productos y agrégalos al carrito para ver el total de tu pedido.</p>
+                    <p>Toca un producto para ver sus detalles y otros relacionados. Agrégalo al carrito para calcular tu pedido.</p>
                 </div>
 
                 <!-- Filtro por categoría -->
@@ -180,6 +180,14 @@
                     <button type="button" class="filtro-btn" data-filtro="ropa" aria-pressed="false"><i class="bi-tag me-1"></i> Ropa</button>
                     <button type="button" class="filtro-btn" data-filtro="accesorios" aria-pressed="false"><i class="bi-collection me-1"></i> Accesorios</button>
                     <button type="button" class="filtro-btn" data-filtro="hogar" aria-pressed="false"><i class="bi-house-heart me-1"></i> Hogar</button>
+                </div>
+                <section class="producto-detalle" id="producto-detalle" aria-live="polite" hidden>
+                    <button type="button" class="btn-volver-catalogo" id="volver-catalogo"><i class="bi-arrow-left me-2" aria-hidden="true"></i>Volver a todos los productos</button>
+                    <div class="producto-detalle-contenido" id="producto-detalle-contenido"></div>
+                </section>
+                <div class="relacionados-titulo" id="titulo-relacionados" hidden>
+                    <h3>Más productos relacionados</h3>
+                    <p id="texto-relacionados"></p>
                 </div>
                 <p class="resultado-contador" id="contador-texto" aria-live="polite">22 productos</p>
 

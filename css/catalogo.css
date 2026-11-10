@@ -255,6 +255,47 @@ header.masthead .hero-sub {
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    header.masthead .hero-kicker,
+    header.masthead h1,
+    header.masthead .hero-sub,
+    header.masthead .hero-producto {
+        animation: hero-entrada 0.75s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+    }
+
+    header.masthead h1 {
+        animation-delay: 100ms;
+    }
+
+    header.masthead .hero-sub {
+        animation-delay: 180ms;
+    }
+
+    header.masthead .hero-producto:nth-child(1) {
+        animation-delay: 260ms;
+    }
+
+    header.masthead .hero-producto:nth-child(2) {
+        animation-delay: 340ms;
+    }
+
+    header.masthead .hero-producto:nth-child(3) {
+        animation-delay: 420ms;
+    }
+}
+
+@keyframes hero-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-productos {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -313,6 +354,10 @@ header.masthead .btn {
     color: rgba(255, 255, 255, 0.85);
     font-size: 1.5rem;
     animation: rebote 1.8s ease-in-out infinite;
+}
+
+.hero-scroll:hover {
+    color: var(--blanco);
 }
 
 @keyframes rebote {
@@ -449,7 +494,7 @@ header.masthead .btn {
     border-radius: var(--radio);
     padding: 1.8rem;
     box-shadow: var(--sombra);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.25, 1), box-shadow 0.35s ease;
 }
 
 .value-card:hover {
@@ -559,6 +604,24 @@ header.masthead .btn {
 .producto-detalle {
     scroll-margin-top: 6rem;
     margin: 0 0 2rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .producto-detalle:not([hidden]) .producto-detalle-contenido {
+        animation: detalle-entrada 0.5s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+    }
+}
+
+@keyframes detalle-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .producto-detalle-contenido {
@@ -671,6 +734,18 @@ header.masthead .btn {
     color: var(--gris-texto);
 }
 
+.animacion-revelar {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease var(--retraso-animacion, 0ms),
+        transform 0.65s cubic-bezier(0.2, 0.7, 0.25, 1) var(--retraso-animacion, 0ms);
+}
+
+.animacion-revelar.animacion-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Estado inicial: aún no se ha elegido categoría */
 .resultado-contador.esperando {
     display: inline-block;
@@ -695,6 +770,30 @@ html.js .producto.mostrar {
     animation: aparece 0.35s ease both;
 }
 
+html.js .producto.mostrar:nth-child(6n + 1) {
+    animation-delay: 0ms;
+}
+
+html.js .producto.mostrar:nth-child(6n + 2) {
+    animation-delay: 55ms;
+}
+
+html.js .producto.mostrar:nth-child(6n + 3) {
+    animation-delay: 110ms;
+}
+
+html.js .producto.mostrar:nth-child(6n + 4) {
+    animation-delay: 165ms;
+}
+
+html.js .producto.mostrar:nth-child(6n + 5) {
+    animation-delay: 220ms;
+}
+
+html.js .producto.mostrar:nth-child(6n) {
+    animation-delay: 275ms;
+}
+
 @keyframes aparece {
     from {
         opacity: 0;
@@ -716,7 +815,7 @@ html.js .producto.mostrar {
     overflow: hidden;
     box-shadow: var(--sombra);
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.25, 1), box-shadow 0.35s ease;
 }
 
 .product-card:hover {
@@ -785,6 +884,28 @@ html.js .producto.mostrar {
     width: 100%;
     border-radius: 10px;
     padding: 0.6rem;
+}
+
+.btn,
+.filtro-btn,
+.btn-detalle-agregar,
+.btn-ver-producto,
+.btn-volver-catalogo {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover,
+.filtro-btn:hover,
+.btn-detalle-agregar:hover,
+.btn-ver-producto:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active,
+.filtro-btn:active,
+.btn-detalle-agregar:active,
+.btn-ver-producto:active {
+    transform: translateY(0) scale(0.98);
 }
 
 @media (max-width: 767.98px) {

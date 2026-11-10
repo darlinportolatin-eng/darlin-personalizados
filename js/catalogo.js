@@ -26,6 +26,27 @@ document.addEventListener('DOMContentLoaded', function () {
     var abrirPedidoAlCerrarCarrito = false;
     var productoSeleccionado = null;
 
+    var elementosAnimados = document.querySelectorAll(
+        '#filosofia .value-card, #catalogo .text-center, #contacto .container > *'
+    );
+    var prefiereMenosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if ('IntersectionObserver' in window && !prefiereMenosMovimiento) {
+        var observadorAnimaciones = new IntersectionObserver(function (entradas, observador) {
+            entradas.forEach(function (entrada) {
+                if (!entrada.isIntersecting) return;
+                entrada.target.classList.add('animacion-visible');
+                observador.unobserve(entrada.target);
+            });
+        }, { threshold: 0.15 });
+
+        elementosAnimados.forEach(function (elemento, indice) {
+            elemento.classList.add('animacion-revelar');
+            elemento.style.setProperty('--retraso-animacion', Math.min(indice % 4, 3) * 90 + 'ms');
+            observadorAnimaciones.observe(elemento);
+        });
+    }
+
     function actualizarFiltroActivo(filtro) {
         botones.forEach(function (boton) {
             var activo = boton.dataset.filtro === filtro;
